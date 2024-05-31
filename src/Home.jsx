@@ -39,26 +39,28 @@ const { id } = useParams()
 
   const handleNote = async(e) => {
     e.preventDefault();
-    console.log(formData)
-    const res = await axios.post(URL, formData );
-    const data = res.data;
-   getAllNote()
-   setFormData({
-    username: '',
-    content: '',
-    date: '',
-})
+  
    
 if(id){
     const res = await axios.put(`${URL}/${id}`, formData);
     const data = res.data;
-    getAllNote()
     getAllNote()
     setFormData({
      username: '',
      content: '',
      date: '',
  })
+ navigate('/');
+}else{
+    const res = await axios.post(URL, formData );
+    const data = res.data;
+   getAllNote()
+    setFormData({
+        username: '',
+        content: '',
+        date: '',
+    })
+    navigate('/');
 }
   
   };
