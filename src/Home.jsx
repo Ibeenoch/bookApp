@@ -5,7 +5,7 @@ import axios from "axios";
 const Home = () => {
     const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    username: "",
+    title: "",
     content: "",
     date: "",
   });
@@ -34,7 +34,7 @@ const { id } = useParams()
     setClose(false);
   };
 
-  const { username, content, date } = formData;
+  const { username, title, date } = formData;
   const URL = 'http://localhost:5000/note';
 
   const handleNote = async(e) => {
@@ -47,7 +47,7 @@ if(id){
     getAllNote()
     setFormData({
      username: '',
-     content: '',
+     title: '',
      date: '',
  })
  navigate('/');
@@ -57,7 +57,7 @@ if(id){
    getAllNote()
     setFormData({
         username: '',
-        content: '',
+        title: '',
         date: '',
     })
     navigate('/');
@@ -79,7 +79,7 @@ if(id){
     const findNote = getNote.find((item) => item.id === id);
     setFormData({
         username: findNote.username,
-        content: findNote.content,
+        title: findNote.title,
         date: findNote.date,
     })
     navigate(`/${id}`)
@@ -107,9 +107,7 @@ if(id){
 }, [])
 
   useEffect(()=> {
-    
     const getNote = JSON.parse(localStorage.getItem('note'));
-    console.log('hj ' ,getNote)
     setNote(getNote)
 }, [added]);
 
@@ -141,11 +139,11 @@ if(id){
 
             <div className={`${open ? 'block': 'hidden'}`}>
               <label
-                htmlFor="username"
+                htmlFor="title"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                <div className="flex justify-between items-cemter">
-                <h1 className="text-sm">User Name</h1>
+                <h1 className="text-sm">Title</h1>
                 {/* close icon  */}
                 <svg onClick={handleClose} className="w-6 h-6 cursor-pointer" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 256 256" enable-background="new 0 0 256 256" >
                 <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
@@ -155,13 +153,13 @@ if(id){
               </label>
               <div className="mt-2">
                 <input
-                  id="username"
-                  name="username"
+                  id="title"
+                  name="title"
                   type="text"
                   onChange={handleChange}
-                  value={formData.username}
+                  value={formData.title}
                   required
-                  placeholder="Add User Name"
+                  placeholder="Add A Title"
                   className="block w-full p-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -233,7 +231,7 @@ if(id){
          <div key={item.id} className="p-2 bg-white rounded-xl mt-2">
                 <div className="">
                 <div className="flex pt-2 pr-2 pl-2 justify-between">
-               <p className="text-sm text-black">{item.username}</p>
+               <p className="text-sm text-black">{item.title}</p>
                <p className="text-xs text-gray-500">{item.date}</p>
                 </div> 
     
@@ -278,7 +276,7 @@ if(id){
                     <div className="p-2 bg-white rounded-xl mt-5">
                 <div className="">
                 <div className="flex pt-2 pr-2 pl-2 justify-between">
-               <p className="text-sm text-black">{note.username}</p>
+               <p className="text-sm text-black">{note.title}</p>
                <p className="text-xs text-gray-500">{note.date}</p>
                 </div> 
     
