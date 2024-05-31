@@ -46,18 +46,18 @@ if(id){
     const data = res.data;
     getAllNote()
     setFormData({
-     username: '',
-     title: '',
-     date: '',
- })
+        title: '',
+        content: '',
+        date: '',
+    })
  navigate('/');
 }else{
     const res = await axios.post(URL, formData );
     const data = res.data;
    getAllNote()
     setFormData({
-        username: '',
         title: '',
+        content: '',
         date: '',
     })
     navigate('/');
@@ -78,7 +78,7 @@ if(id){
     const getNote = JSON.parse(localStorage.getItem('note'));
     const findNote = getNote.find((item) => item.id === id);
     setFormData({
-        username: findNote.username,
+        content: findNote.content,
         title: findNote.title,
         date: findNote.date,
     })
