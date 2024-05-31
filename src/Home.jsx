@@ -43,11 +43,22 @@ const { id } = useParams()
     const res = await axios.post(URL, formData );
     const data = res.data;
    getAllNote()
+   setFormData({
+    username: '',
+    content: '',
+    date: '',
+})
    
 if(id){
     const res = await axios.put(`${URL}/${id}`, formData);
     const data = res.data;
     getAllNote()
+    getAllNote()
+    setFormData({
+     username: '',
+     content: '',
+     date: '',
+ })
 }
   
   };
@@ -107,7 +118,7 @@ if(id){
     <div className="shadow-lg">
         <div className="sm:mx-auto sm:w-1/2 px-4 sm:max-w-sm">
          
-          <h2 className="mt-5 text-center text-lg font-bold leading-4 tracking-tight text-gray-900">
+<h2 className="m-5 text-center text-lg font-bold leading-4 tracking-tight text-gray-900">
            Note App
           </h2>
         </div>
@@ -117,13 +128,14 @@ if(id){
 
             
             {/* add icon  */}
-            <div  onClick={handleOpen} className={`${open ? 'hidden': 'flex justify-center'}  `}>
-               <svg className="w-9 h-9 cursor-pointer" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 256 256" enable-background="new 0 0 256 256">
+            <div  onClick={handleOpen} className={`${open ? 'hidden': 'flex justify-center rounded-xl items-center bg-white py-2 px-4 gap-1 cursor-pointer'}  `}>
+               <svg className="w-4 h-4 cursor-pointer" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 256 256" enable-background="new 0 0 256 256">
                 <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
                 <g><g><g><path fill="#000000" d="M124.1,10.8c-1,0.6-2.6,1.9-3.4,3l-1.5,2L119,67.4l-0.1,51.6H68c-56.6,0-53.2-0.2-56.4,3.9c-2.2,2.9-2.2,7.6,0,10.5c3.1,4.1-0.3,3.9,56.4,3.9h50.9V188c0,56.6-0.2,53.2,3.9,56.4c2.9,2.2,7.6,2.2,10.5,0c4.1-3.1,3.9,0.3,3.9-56.4v-50.9H188c56.6,0,53.2,0.2,56.4-3.9c2.2-2.9,2.2-7.6,0-10.5c-3.1-4.1,0.3-3.9-56.4-3.9h-50.9V68c0-56.5,0.2-53.2-3.8-56.3C130.8,9.9,126.8,9.4,124.1,10.8z"/></g></g></g>
                 </svg> 
+               <p className="text-black font-semibold text-sm">Add Note</p> 
+                
             </div>
-        
 
             <div className={`${open ? 'block': 'hidden'}`}>
               <label
