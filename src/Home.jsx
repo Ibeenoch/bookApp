@@ -91,6 +91,7 @@ if(id){
         title: findNote.title,
     })
     navigate(`/${id}`)
+    handleOpen()
   }
 
   const handleDelete = async(id) => {
