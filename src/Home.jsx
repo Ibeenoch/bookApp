@@ -7,7 +7,6 @@ const Home = () => {
   const [formData, setFormData] = useState({
     title: "",
     content: "",
-    date: "",
   });
   const getNote = JSON.parse(localStorage.getItem('note'));
   const [note, setNote] = useState(getNote)
@@ -15,6 +14,16 @@ const Home = () => {
   const [close, setClose] = useState(false);
   const [open, setOpen] = useState(false);
 
+  let currentDate = new Date();
+
+let getdate = currentDate.getDate();
+let month = currentDate.getMonth() + 1; 
+let year = currentDate.getFullYear();
+
+let formattedDate = `${month}/${getdate}/${year}`;
+
+console.log(`Current date: ${formattedDate}`);
+const date = formattedDate
 
 const { id } = useParams()
 
@@ -33,32 +42,32 @@ const { id } = useParams()
     setOpen(true);
     setClose(false);
   };
+  
 
-  const { username, title, date } = formData;
+  const { username, title } = formData;
   const URL = 'http://localhost:5000/note';
+  const form = {...formData, date};
 
   const handleNote = async(e) => {
     e.preventDefault();
-  
+ 
    
 if(id){
-    const res = await axios.put(`${URL}/${id}`, formData);
+    const res = await axios.put(`${URL}/${id}`, form);
     const data = res.data;
     getAllNote()
     setFormData({
         title: '',
         content: '',
-        date: '',
     })
  navigate('/');
 }else{
-    const res = await axios.post(URL, formData );
+    const res = await axios.post(URL, form );
     const data = res.data;
    getAllNote()
     setFormData({
         title: '',
         content: '',
-        date: '',
     })
     navigate('/');
 }
@@ -80,7 +89,6 @@ if(id){
     setFormData({
         content: findNote.content,
         title: findNote.title,
-        date: findNote.date,
     })
     navigate(`/${id}`)
   }
@@ -162,30 +170,6 @@ if(id){
                   placeholder="Add A Title"
                   className="block w-full p-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
                 />
-              </div>
-            </div>
-
-            <div className={`${open ? 'flex flex-col': 'hidden'}`} >
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="date"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                 Date
-                </label>
-              </div>
-              <div className="mt-2 relative">
-                <input
-                  id="date"
-                  name="date"
-                  type="date" 
-                  value={formData.date}
-                  onChange={handleChange}
-                  required
-                  placeholder="write anything"
-                  className="block cursor-pointer w-full p-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
-                />
-                
               </div>
             </div>
 
