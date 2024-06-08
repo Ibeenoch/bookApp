@@ -39,7 +39,7 @@ const navigate = useNavigate()
             booksCollection.map((book, index) => (
               <div key={index} className='p-2 bg-white overflow-hidden rounded-xl text-wrap'>
                 <div className='flex gap-1 p-1'>
-                  <img src={`https://covers.openlibrary.org/b/id/${book && book.cover_i}-L.jpg`} className='w-1/2 h-auto sm:w-1/2 md:w-[140px]' alt="" />
+                  <img src={`https://covers.openlibrary.org/b/id/${book && book.cover_i}-L.jpg`} className='w-1/2 max-h-[100px] md:max-h-[150px] sm:w-1/2 md:w-[140px]' alt="" />
                   <div className='flex flex-col'>
                     <div className='flex'>
                     <h2 className='font-bold flex-none text-black text-xs'>{book && book.title}</h2>
