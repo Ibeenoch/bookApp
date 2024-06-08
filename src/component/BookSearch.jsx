@@ -99,7 +99,7 @@ const BookSearch = () => {
           </>
         ) : (
           <>
-       <h1 className='text-center'>{ booksCollection.length > 0 ? `${booksCollection.length} Results Found` : ''} </h1>
+       <h1 className='text-center'>{ booksCollection && booksCollection.length > 0 ? `${booksCollection.length} Results Found` : ''} </h1>
 
            {
           booksCollection && booksCollection.map((book, index) => (
