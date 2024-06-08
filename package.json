@@ -42,5 +42,6 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.3"
-  }
+  },
+  "proxy": "https://openlibrary.org"
 }

@@ -6,7 +6,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import Home from './Home';
+import BookSearch from './component/BookSearch';
+import MyBookShelf from './component/MyBookShelf';
+import Book from './component/Book';
+import LastBookOpen from './component/LastBookOpen';
 
 
 function App() {
@@ -14,12 +17,21 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
+      element: <BookSearch />,
     },
     {
-      path: "/:id",
-      element: <Home />,
+      path: "/book/works",
+      element: <MyBookShelf />,
     },
+    {
+      path: "/book/works/:id",
+      element: <Book />,
+    },
+    {
+      path: "/last/read",
+      element: <LastBookOpen />,
+    },
+   
   ]);
   return (
     <React.StrictMode>
