@@ -12,12 +12,13 @@ const BookSearch = () => {
   const [booksCollection, setBooksCollection]= useState(JSON.parse(localStorage.getItem('books')));
  
   useEffect(() => {
-    const getBooks = JSON.parse(localStorage.getItem('books'));
-    setBooksCollection(getBooks)
+    let getCollection = JSON.parse(localStorage.getItem('collections'));
+    getCollection = getCollection ? getCollection :  localStorage.setItem('collections', JSON.stringify([]));
   }, [])
+
   const searchBook = async() => {
     try {
-      const limit = 10;
+    const limit = 10;
     const page = 1;
     const API = `https://openlibrary.org/search.json?q=${searchInput}&limit=${limit}&page=${page}`;
     const res = await fetch(API);
@@ -43,23 +44,26 @@ const BookSearch = () => {
  
 
 
-  const addToCollection = async(bookId, index) => {
+  const addToCollection = async(bookId) => {
     const allBooks = JSON.parse(localStorage.getItem('books'));
+    const bookCollections = JSON.parse(localStorage.getItem('collections'));
     const findBook = allBooks.find((book) => book.cover_edition_key === bookId);
     // check if book exist before pushing
     for(let book of bookArr){
+
       if(book.cover_edition_key === bookId){
         return;
       }
     }
     setAdded(prev => [...prev, bookId]);
     setBookArr(prev => [...prev, findBook]);
-    localStorage.setItem('collections', JSON.stringify(bookArr));
     setIsAdded(true);
    
   }
-    
 
+  localStorage.setItem('collections', JSON.stringify(bookArr));
+
+    
   return (
     <div className='p-0 m-0 w-full h-full'>
       {/* navbar  */}
@@ -157,7 +161,7 @@ const BookSearch = () => {
 
 
 
-            <button onClick={() =>addToCollection(book && book.cover_edition_key, index)} className='text-xs text-white font-bold duration-200 transition-transform cursor-pointer'>{ added.includes(book.cover_edition_key) ? 'Added' : 'Add To Shelf'}</button>
+            <button onClick={() =>addToCollection(book && book.cover_edition_key)} className='text-xs text-white font-bold duration-200 transition-transform cursor-pointer'>{ added.includes(book.cover_edition_key) ? 'Added' : 'Add To Shelf'}</button>
             </div>
 
           </div>

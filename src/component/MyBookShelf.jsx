@@ -31,7 +31,7 @@ const navigate = useNavigate()
       </div>
       <div className='grid grid-cols-1 p-4 sm:grid-cols-2 md:grid-cols-3 gap-4'>
         {
-         booksCollection && booksCollection.length <= 0 ? (
+         !booksCollection || booksCollection.length <= 0 ? (
             <>
             <div>No Book Has Been Added To Your Shelf</div>
             </>
@@ -67,9 +67,9 @@ const navigate = useNavigate()
                 <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
                 <g><g><g><path fill="gray" d="M116.9,54.6c-40.1,4.2-76.6,27.4-103.3,65.7c-4.8,7-4.8,8.3,0,15.2c12.2,17.5,28.2,33.5,44.3,44.1c33.8,22.4,72.2,27.9,108.8,15.5c28.6-9.6,55.6-30.9,75.6-59.7c4.9-7.1,4.9-8.3-0.5-16c-16.8-23.7-36.5-41.1-59.2-52.3c-12.8-6.3-24.1-9.9-38-12C138.9,54.4,122.7,54,116.9,54.6z M138.7,85c8.3,2.1,14.7,5.9,20.7,12c6,6,9.8,12.8,11.9,21.1c1.1,4.4,1.1,15.4,0,19.7c-2.1,8.5-5.8,14.9-12.1,21.3c-6.3,6.3-12.7,10-21.3,12.1c-4.4,1.1-15.4,1.1-19.7,0c-8.4-2.1-15.1-5.9-21.3-12c-6.1-6.2-9.9-12.9-12-21.3c-1.1-4.4-1.1-15.4,0-19.7c4.4-17.5,17.9-30.4,35.5-33.8C124.9,83.4,134.1,83.8,138.7,85z"/></g></g></g>
                 </svg>              
-                <p className='text-gray-500 flex-none text-[9px]'>  {book && book.readinglog_count}  </p>
+                <p className='text-gray-500 flex-none text-[9px]'>  {book && book.readinglog_count} Views </p>
               </div>
-                  <button onClick={() =>viewBook(book && book.key, book && book.cover_i)} className='px-4 py-2 rounded-2xl bg-black text-xs text-white font-bold duration-200 transition-transform hover:scale-110 cursor-pointer'>Read more</button>
+                  <button onClick={() =>viewBook(book && book.key, book && book.cover_i)} className='px-4 py-2 rounded-2xl bg-black text-[10px] text-white font-bold duration-200 transition-transform hover:scale-110 cursor-pointer'>Read more</button>
                 </div>
               </div>
                  ))

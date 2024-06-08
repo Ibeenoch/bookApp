@@ -46,14 +46,16 @@ const LastBookOpen = () => {
                     </div>
                     </div>
                 </div>
-                <Nav/>
+               
             </div> 
             ) : (
-                <div>
-                    No Book Has Been Viewed
+                <div className='flex justify-center pt-8 items-center'>
+                    No Book Has Been Viewed Recently
                 </div>
             )
         }
+        
+         <Nav/>
             
       </div>
     )
