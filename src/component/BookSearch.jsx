@@ -68,9 +68,10 @@ const BookSearch = () => {
     <div className='p-0 m-0 w-full h-full'>
       {/* navbar  */}
       <div className='bg-gray-800'>
-        <h1 className='font-bold text-xl text-white pt-5 text-center'>Explore Books</h1>
+        <h1 className='font-bold text-xl text-white pt-5 text-center'>Personal Book Shelf</h1>
+        <h1 className='font-semibold text-sm text-white pt-2 text-center'>Search To Explore Books</h1>
         <div className='mx-auto flex justify-center items-center mt-3 pb-5'>
-          <input onChange={handleSearch} type="search" className='rounded-tl-xl border border-0 focus:ring-1 focus:ring-inset focus:ring-white placeholder:text-gray-400 rounded-bl-xl p-2 text-xs' placeholder='Search For a Book' name="" id="" />
+          <input onChange={handleSearch} type="search" className='rounded-tl-xl border border-0 focus:ring-1 focus:ring-inset focus:ring-white placeholder:text-gray-400 rounded-bl-xl p-2 text-xs' placeholder='Search For Any Book' name="" id="" />
           <div className='p-[6px] cursor-pointer bg-white rounded-tr-xl rounded-br-xl'>
         <svg className='w-5 h-5 p-[3px]' version="1.1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" viewBox="0 0 256 256" enable-background="new 0 0 256 256">
       <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
@@ -80,18 +81,7 @@ const BookSearch = () => {
         </div>
       </div>
 
-      <div className='flex justify-center p-2 items-center'>
-        <div className='px-4 py-2 rounded-2xl bg-gray-800 flex items-center duration-200 transition-transform hover:scale-110'>
-          <svg className='w-5 h-5' version="1.1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" viewBox="0 0 256 256" enable-background="new 0 0 256 256" >
-          <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
-          <g><g><g><path fill="white" d="M116.9,54.6c-40.1,4.2-76.6,27.4-103.3,65.7c-4.8,7-4.8,8.3,0,15.2c12.2,17.5,28.2,33.5,44.3,44.1c33.8,22.4,72.2,27.9,108.8,15.5c28.6-9.6,55.6-30.9,75.6-59.7c4.9-7.1,4.9-8.3-0.5-16c-16.8-23.7-36.5-41.1-59.2-52.3c-12.8-6.3-24.1-9.9-38-12C138.9,54.4,122.7,54,116.9,54.6z M138.7,85c8.3,2.1,14.7,5.9,20.7,12c6,6,9.8,12.8,11.9,21.1c1.1,4.4,1.1,15.4,0,19.7c-2.1,8.5-5.8,14.9-12.1,21.3c-6.3,6.3-12.7,10-21.3,12.1c-4.4,1.1-15.4,1.1-19.7,0c-8.4-2.1-15.1-5.9-21.3-12c-6.1-6.2-9.9-12.9-12-21.3c-1.1-4.4-1.1-15.4,0-19.7c4.4-17.5,17.9-30.4,35.5-33.8C124.9,83.4,134.1,83.8,138.7,85z"/></g></g></g>
-          </svg>
-
-          <Link to={`/book/works`}>
-          <button className='text-xs text-white font-bold cursor-pointer pl-1'>View BookShelf</button>
-          </Link>
-      </div>
-      </div>
+     
 
     <div>
       <div className='max-w-sm mx-auto'>
