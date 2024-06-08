@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Nav = () => {
   return (
-    <div className="fixed bottom-0 pr-3 pl-3 pb-3 w-full mx-auto ">
+    <div className="fixed bottom-5 pr-3 pl-3 pb-3 w-full mx-auto ">
         
 
     <div className="flex justify-around bg-gray-800 p-4 rounded-full max-w-md mx-auto items-center">

@@ -9,13 +9,13 @@ const Book = () => {
         <h2 className='text-white text-sm font-bold text-center'>Book Details</h2>
         </div>
 
-        <div className='mt-5 flex justify-center items-center'>      
+        <div className='mt-5 flex justify-center items-center p-4'>      
             <div className='p-2 bg-white overflow-hidden rounded-xl text-wrap'>
-              <div className='flex gap-2 p-1'>
-                <img src={book && book.imgUrl} className='w-[100px]' alt="" />
+              <div className='sm:flex gap-2 p-1'>
+                <img src={book && book.imgUrl} className='w-full max-h-[200px]' alt="" />
                 <div className='flex flex-col'>
-                  <div className='flex'>
-                  <h2 className='font-bold flex-none text-black text-sm'>{book && book.title}</h2>
+                  <div className='flex break-words'>
+                  <h2 className='font-bold flex-non text-balance text-black text-sm'>{book && book.title}</h2>
                   </div>
                   <div className='flex'>
                   <p className='text-gray-500 flex-none text-[9px]'>by {book && book.author_name && book.author_name[0]}</p>
@@ -29,7 +29,7 @@ const Book = () => {
                   
                   <p className='text-gray-500 flex-none text-[9px]'>{book && book.ratings_count} votes</p>
                   </div>
-                  <div className='text-wrap'>
+                  <div className='text-balance'>
                   <p className='text-gray-500 flex-none text-sm max-w-sm'>{book && book.description && book.description.value || book.description}</p>
                   </div>
                 </div>
