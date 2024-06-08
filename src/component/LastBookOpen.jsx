@@ -8,8 +8,9 @@ const LastBookOpen = () => {
              <div className='bg-gray-800 p-5'>
             <h2 className='text-white text-sm font-bold text-center'>Last Book Viewed</h2>
             </div>
-
-            <div className='mt-5 flex justify-center items-center'>
+        {
+            book ? (
+               <div className='mt-5 flex justify-center items-center'>
             
                 <div className='p-2 bg-white overflow-hidden rounded-xl text-wrap'>
                     <div className='flex gap-2 p-1'>
@@ -46,7 +47,14 @@ const LastBookOpen = () => {
                     </div>
                 </div>
                 <Nav/>
-            </div>
+            </div> 
+            ) : (
+                <div>
+                    No Book Has Been Viewed
+                </div>
+            )
+        }
+            
       </div>
     )
 }

@@ -6,11 +6,15 @@ const BookSearch = () => {
   const navigate = useNavigate();
   const [searchInput, setSearchInput] = useState('');
   const [added, setAdded] = useState([]);
-  const [bookArr, setBookArr] = useState(JSON.parse(localStorage.getItem('collections')) ? JSON.parse(localStorage.getItem('books')) : [] );
+  const [bookArr, setBookArr] = useState(JSON.parse(localStorage.getItem('collections')) ? JSON.parse(localStorage.getItem('collections')) : [] );
   const [isAdded, setIsAdded] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [booksCollection, setBooksCollection]= useState(JSON.parse(localStorage.getItem('books')));
  
+  useEffect(() => {
+    const getBooks = JSON.parse(localStorage.getItem('books'));
+    setBooksCollection(getBooks)
+  }, [])
   const searchBook = async() => {
     try {
       const limit = 10;
